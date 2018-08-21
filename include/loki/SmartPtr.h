@@ -40,6 +40,7 @@
 #include <stdexcept>
 #include <cassert>
 #include <string>
+#include <iostream>
 
 #if !defined(_MSC_VER)
 #  if defined(__sparc__)
