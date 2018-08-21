@@ -715,21 +715,22 @@ namespace Loki
         {}
 
         template <class P1>
-        static P Clone(P1& val)  // TODO(tangxuan): ÈôP1²ÎÊı°üº¬constĞŞÊÎ£¬ÔòÏÂÊö¶Ôval¸³Öµ»á³ö´í£º²»ÄÜ¸ø³£Á¿¸³Öµ
+        static P Clone(P1& val)  // TODO(tangxuan): è‹¥P1å‚æ•°åŒ…å«constä¿®é¥°ï¼Œåˆ™ä¸‹è¿°å¯¹valèµ‹å€¼ä¼šå‡ºé”™ï¼šä¸èƒ½ç»™å¸¸é‡èµ‹å€¼
         {
             P result(val);
             val = P1();
             return result;
         }
-		// TODO(tangxuan): Ôö¼ÓconstÌØÀı»¯º¯Êı£¨ĞŞ¸ÄÓĞ´ıÈ·ÈÏ£©
-		template <class P1>
-		static P Clone(const P1& val)
-		{
-			P result(val);
-			val = P1();
-			return result;
-		}
-		// End TODO `Clone`
+	// TODO(tangxuan): å¢åŠ constç‰¹ä¾‹åŒ–å‡½æ•°ï¼ˆä¿®æ”¹æœ‰å¾…ç¡®è®¤ï¼‰
+	template <class P1>
+	static P Clone(const P1& val)
+	{
+	    P result(val);
+	    //val = P1();
+	    std::cout << "typename can't be const" << std::endl;
+	    return result;
+	}
+	// End TODO `Clone`
 
         static bool Release(const P&)
         { return true; }
